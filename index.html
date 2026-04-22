@@ -14,30 +14,86 @@
 </nav>
 
 <section class="hero">
+
 <h1 class="logo">IMPERIUM<span>CRAFT</span></h1>
 
 <p class="subtitle">Хоррор • Тайны • Выживание</p>
 
-<button onclick="copyIP()">Играть сейчас</button>
+<div class="play-section">
+
+<button onclick="copyIP()">Начать играть</button>
+
+<img src="sound.png" class="sound-icon" onclick="playSound()">
+
+</div>
+
 </section>
 
+
+<section class="tabs">
+
+<div class="tab">
+
+<h2>Что нового</h2>
+
+<p>
+• Открыт сервер ImperiumCraft  
+• Добавлена анархия без правил  
+• Игроки уже начали строить базы  
+• Скоро появятся новые механики
+</p>
+
+</div>
+
+
+<div class="tab">
+
+<h2>Что такое ImperiumCraft</h2>
+
+<p>
+ImperiumCraft — это сервер анархии Minecraft.
+
+Здесь нет приватов, нет правил и нет вайпов.
+Каждый игрок может строить базы, объединяться
+в кланы, нападать на других и выживать как
+он захочет.
+
+Мир полностью формируется игроками.
+</p>
+
+</div>
+
+</section>
+
+
 <footer>
+
 <div class="footer-links">
-<a href="https://discord.gg/9DjzBM9yAt ">Discord</a>
-<a href="https://youtube.com/@mrallay2304?si=ie_Y_EkJ7n5Yf4Ho ">YouTube</a>
-<a href="https://dalink.to/leon2304" >Поддержать</a>
+<a href="https://discord.gg/9DjzBM9yAt">Discord</a>
+<a href="https://youtube.com/@mrallay2304">YouTube</a>
+<a href="https://dalink.to/leon2304">Поддержать</a>
 </div>
 
 <p class="copyright">
 © Все права зарезервированы MrALLAY Team вплоть до 2029 года
 </p>
+
 </footer>
 
+
+<audio id="sound" src="click.ogg"></audio>
+
 <script>
+
 function copyIP(){
 navigator.clipboard.writeText("m6.joinserver.xyz:25922");
 alert("IP скопирован!");
 }
+
+function playSound(){
+document.getElementById("sound").play();
+}
+
 </script>
 
 </body>
