@@ -33,31 +33,28 @@
 <section class="tabs">
 
 <div class="tab">
-
 <h2>Что нового</h2>
-
 <p>
 • Открыт сервер ImperiumCraft  
 • Добавлена анархия без правил  
 • Игроки уже начали строить базы  
 • Скоро появятся новые механики
 </p>
-
 </div>
 
 
-<div class="tab">
+<div class="tab big-tab">
+
+<div class="tab-bg"></div>
 
 <h2>Что такое ImperiumCraft</h2>
 
 <p>
 ImperiumCraft — это сервер анархии Minecraft.
-
 Здесь нет приватов, нет правил и нет вайпов.
 Каждый игрок может строить базы, объединяться
 в кланы, нападать на других и выживать как
 он захочет.
-
 Мир полностью формируется игроками.
 </p>
 
@@ -66,12 +63,53 @@ ImperiumCraft — это сервер анархии Minecraft.
 </section>
 
 
+<!-- СТАФФ -->
+<section class="staff">
+
+<h2>👥 Наш стафф</h2>
+
+<div class="staff-card">
+<img src="user1.png">
+<div>
+<h3>
+<img src="btn1.png" class="mini-btn" onclick="playStaffSound('s1')">
+MrALLAY
+</h3>
+<p>Создатель проекта</p>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="user2.png">
+<div>
+<h3>
+<img src="btn2.png" class="mini-btn" onclick="playStaffSound('s2')">
+Aunty_Pochka
+</h3>
+<p>Администратор сервера</p>
+</div>
+</div>
+
+<div class="staff-card">
+<img src="user3.png">
+<div>
+<h3>
+<img src="btn3.png" class="mini-btn" onclick="playStaffSound('s3')">
+Dipxii_vertu001
+</h3>
+<p>аэаэаэа</p>
+</div>
+</div>
+
+</section>
+
+
 <footer>
 
 <div class="footer-links">
-<a href="https://discord.gg/9DjzBM9yAt">Discord</a>
-<a href="https://youtube.com/@mrallay2304">YouTube</a>
-<a href="https://dalink.to/leon2304">Поддержать</a>
+<a href="https://discord.gg/9DjzBM9yAt" target="_blank">Discord</a>
+<a href="https://youtube.com/@mrallay2304" target="_blank">YouTube</a>
+<a href="https://dalink.to/leon2304" target="_blank">Поддержать</a>
 </div>
 
 <p class="copyright">
@@ -81,7 +119,15 @@ ImperiumCraft — это сервер анархии Minecraft.
 </footer>
 
 
+<!-- АУДИО -->
 <audio id="sound" src="click.ogg"></audio>
+<audio id="s1" src="s1.ogg"></audio>
+<audio id="s2" src="s2.ogg"></audio>
+<audio id="s3" src="s3.ogg"></audio>
+
+<!-- МОЛНИЯ -->
+<div id="lightning"></div>
+
 
 <script>
 
@@ -93,6 +139,28 @@ alert("IP скопирован!");
 function playSound(){
 document.getElementById("sound").play();
 }
+
+function playStaffSound(id){
+document.getElementById(id).play();
+}
+
+// ⚡ МОЛНИЯ
+function lightningStrike(){
+const el = document.getElementById("lightning");
+el.classList.add("lightning-active");
+
+setTimeout(()=>{
+el.classList.remove("lightning-active");
+},400);
+}
+
+setInterval(lightningStrike, 300000);
+
+setInterval(()=>{
+if(Math.random() < 0.2){
+lightningStrike();
+}
+}, 20000);
 
 </script>
 
