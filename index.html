@@ -3,104 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <title>IMPERIUMCRAFT</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: radial-gradient(circle at top, #0b1220, #05080f);
-    color: #e2e8f0;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-/* Анимация заголовка */
-.title {
-    font-size: 60px;
-    margin-top: 100px;
-    letter-spacing: 5px;
-    color: #22d3ee;
-    animation: glow 2s infinite alternate;
-}
-
-@keyframes glow {
-    from { text-shadow: 0 0 10px #22d3ee; }
-    to { text-shadow: 0 0 25px #8b5cf6; }
-}
-
-/* Навигация */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.6);
-    padding: 10px;
-}
-nav a {
-    color: #22d3ee;
-    margin: 10px;
-    text-decoration: none;
-}
-
-/* IP */
-.ip {
-    margin-top: 30px;
-    padding: 15px;
-    display: inline-block;
-    background: linear-gradient(45deg, #3b82f6, #8b5cf6);
-    border-radius: 12px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.ip:hover {
-    transform: scale(1.1);
-}
-
-/* Футер */
-footer {
-    margin-top: 100px;
-    background: black;
-    padding: 20px;
-    font-size: 14px;
-}
-footer a {
-    color: #22d3ee;
-    margin: 0 10px;
-    text-decoration: none;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <nav>
-<a href="index.html">🏠 Главная</a>
-<a href="wiki.html">📚 Wiki</a>
-<a href="news.html">📰 Новости</a>
+<a href="index.html">Главная</a>
+<a href="wiki.html">Вики</a>
 </nav>
 
-<h1 class="title">IMPERIUMCRAFT</h1>
+<section class="hero">
+<h1 class="logo">IMPERIUM<span>CRAFT</span></h1>
 
+<p class="subtitle">Хоррор • Тайны • Выживание</p>
 
-<div class="ip" onclick="copyIP()">play.imperium.ru (нажми)</div>
+<button onclick="copyIP()">Играть сейчас</button>
+</section>
+
+<footer>
+<div class="footer-links">
+<a href="https://discord.gg/9DjzBM9yAt ">Discord</a>
+<a href="https://youtube.com/@mrallay2304?si=ie_Y_EkJ7n5Yf4Ho ">YouTube</a>
+<a href="https://dalink.to/leon2304" >Поддержать</a>
+</div>
+
+<p class="copyright">
+© Все права зарезервированы MrALLAY Team вплоть до 2029 года
+</p>
+</footer>
 
 <script>
-function copyIP() {
-navigator.clipboard.writeText("play.imperium.ru");
+function copyIP(){
+navigator.clipboard.writeText("m6.joinserver.xyz:25922");
 alert("IP скопирован!");
 }
 </script>
-
-<footer>
-<p>
-<a href="#">Discord</a> |
-<a href="#">YouTube</a> |
-<a href="#">💎 Поддержать</a>
-</p>
-<p style="opacity:0.5;">
-© MrALLAY Team 2024–2029. Все права защищены.
-</p>
-</footer>
 
 </body>
 </html>
