@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
 <meta charset="UTF-8">
 <title>IMPERIUMCRAFT</title>
+
 <link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -20,9 +25,7 @@
 <p class="subtitle">Хоррор • Тайны • Выживание</p>
 
 <div class="play-section">
-
-<button onclick="copyIP()">Начать играть</button>
-
+<button id="playButton" onclick="copyIP()">Начать играть</button>
 </div>
 
 </section>
@@ -33,9 +36,9 @@
 <div class="tab">
 <h2>Что нового</h2>
 <p>
-• Открыт сервер ImperiumCraft  
-• Добавлена анархия без правил  
-• Игроки уже начали строить базы  
+• Открыт сервер ImperiumCraft <br>
+• Добавлена анархия без правил <br>
+• Игроки уже начали строить базы <br>
 • Скоро появятся новые механики
 </p>
 </div>
@@ -61,7 +64,6 @@ ImperiumCraft — это сервер анархии Minecraft.
 </section>
 
 
-<!-- СТАФФ -->
 <section class="staff">
 
 <h2>👥 Наш стафф</h2>
@@ -95,7 +97,7 @@ Aunty_Pochka
 <img src="btn3.png" class="mini-btn" onclick="playStaffSound('s3')">
 Dipxii_vertu001
 </h3>
-<p>аэаэаэа</p>
+<p>Технический администратор</p>
 </div>
 </div>
 
@@ -111,18 +113,16 @@ Dipxii_vertu001
 </div>
 
 <p class="copyright">
-© Все права зарезервированы MrALLAY Team вплоть до 2029 года
+© Все права зарезервированы MrALLAY Team до 2029
 </p>
 
 </footer>
 
 
-<!-- АУДИО -->
 <audio id="s1" src="s1.ogg"></audio>
 <audio id="s2" src="s2.ogg"></audio>
 <audio id="s3" src="s3.ogg"></audio>
 
-<!-- МОЛНИЯ -->
 <div id="lightning"></div>
 
 
@@ -130,14 +130,20 @@ Dipxii_vertu001
 
 function copyIP(){
 navigator.clipboard.writeText("m6.joinserver.xyz:25922");
-alert("IP сервера: m6.joinserver.xyz:25922 скопирован!");
+
+const btn = document.getElementById("playButton");
+btn.innerText = "IP скопирован!";
+setTimeout(()=>{
+btn.innerText = "Начать играть";
+},2000);
 }
 
 function playStaffSound(id){
 document.getElementById(id).play();
 }
 
-// ⚡ МОЛНИЯ
+
+// ⚡ молния
 function lightningStrike(){
 const el = document.getElementById("lightning");
 el.classList.add("lightning-active");
@@ -153,8 +159,29 @@ setInterval(()=>{
 if(Math.random() < 0.1){
 lightningStrike();
 }
-}, 15000);
-  
+},15000);
+
+
+// 👥 анимация стаффа
+const observer = new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+entry.target.classList.add("staff-show")
+}
+else{
+entry.target.classList.remove("staff-show")
+}
+
+})
+
+})
+
+document.querySelectorAll(".staff-card").forEach(el=>{
+observer.observe(el)
+})
+
 </script>
 
 </body>
