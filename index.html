@@ -2,21 +2,25 @@
 <html lang="ru">
 
 <head>
+
 <meta charset="UTF-8">
 <title>IMPERIUMCRAFT</title>
 
 <link rel="stylesheet" href="style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
 <nav>
-<a href="index.html">Главная</a>
-<a href="wiki.html">Вики</a>
+
+<a href="#">Главная</a>
+<a href="#">Вики</a>
+
 </nav>
+
 
 <section class="hero">
 
@@ -25,7 +29,9 @@
 <p class="subtitle">Хоррор • Тайны • Выживание</p>
 
 <div class="play-section">
+
 <button id="playButton" onclick="copyIP()">Начать играть</button>
+
 </div>
 
 </section>
@@ -34,13 +40,18 @@
 <section class="tabs">
 
 <div class="tab">
+
 <h2>Что нового</h2>
+
 <p>
+
 • Открыт сервер ImperiumCraft <br>
 • Добавлена анархия без правил <br>
 • Игроки уже начали строить базы <br>
 • Скоро появятся новые механики
+
 </p>
+
 </div>
 
 
@@ -51,12 +62,13 @@
 <h2>Что такое ImperiumCraft</h2>
 
 <p>
+
 ImperiumCraft — это сервер анархии Minecraft.
 Здесь нет приватов, нет правил и нет вайпов.
 Каждый игрок может строить базы, объединяться
 в кланы, нападать на других и выживать как
 он захочет.
-Мир полностью формируется игроками.
+
 </p>
 
 </div>
@@ -68,38 +80,69 @@ ImperiumCraft — это сервер анархии Minecraft.
 
 <h2>👥 Наш стафф</h2>
 
+
 <div class="staff-card">
-<img src="user1.png">
-<div>
+
+<img src="user1.png" class="staff-avatar">
+
+<div class="staff-info">
+
 <h3>
+
 <img src="btn1.png" class="mini-btn" onclick="playStaffSound('s1')">
+
 MrALLAY
+
 </h3>
+
 <p>Создатель проекта</p>
-</div>
+
 </div>
 
+</div>
+
+
 <div class="staff-card">
-<img src="user2.png">
-<div>
+
+<img src="user2.png" class="staff-avatar">
+
+<div class="staff-info">
+
 <h3>
+
 <img src="btn2.png" class="mini-btn" onclick="playStaffSound('s2')">
+
 Aunty_Pochka
+
 </h3>
+
 <p>Администратор сервера</p>
-</div>
+
 </div>
 
+</div>
+
+
 <div class="staff-card">
-<img src="user3.png">
-<div>
+
+<img src="user3.png" class="staff-avatar">
+
+<div class="staff-info">
+
 <h3>
+
 <img src="btn3.png" class="mini-btn" onclick="playStaffSound('s3')">
+
 Dipxii_vertu001
+
 </h3>
+
 <p>Технический администратор</p>
+
 </div>
+
 </div>
+
 
 </section>
 
@@ -107,13 +150,17 @@ Dipxii_vertu001
 <footer>
 
 <div class="footer-links">
-<a href="https://discord.gg/9DjzBM9yAt" target="_blank">Discord</a>
-<a href="https://youtube.com/@mrallay2304" target="_blank">YouTube</a>
-<a href="https://dalink.to/leon2304" target="_blank">Поддержать</a>
+
+<a href="#">Discord</a>
+<a href="#">YouTube</a>
+<a href="#">Поддержать</a>
+
 </div>
 
 <p class="copyright">
+
 © Все права зарезервированы MrALLAY Team до 2029
+
 </p>
 
 </footer>
@@ -123,66 +170,67 @@ Dipxii_vertu001
 <audio id="s2" src="s2.ogg"></audio>
 <audio id="s3" src="s3.ogg"></audio>
 
-<div id="lightning"></div>
-
 
 <script>
 
-function copyIP(){
-navigator.clipboard.writeText("m6.joinserver.xyz:25922");
 
-const btn = document.getElementById("playButton");
-btn.innerText = "IP скопирован!";
+function copyIP(){
+
+navigator.clipboard.writeText("m6.joinserver.xyz:25922")
+
+const btn = document.getElementById("playButton")
+
+btn.innerText = "IP скопирован!"
+
 setTimeout(()=>{
-btn.innerText = "Начать играть";
-},2000);
+
+btn.innerText="Начать играть"
+
+},2000)
+
 }
+
 
 function playStaffSound(id){
-document.getElementById(id).play();
+
+document.getElementById(id).play()
+
 }
 
 
-// ⚡ молния
-function lightningStrike(){
-const el = document.getElementById("lightning");
-el.classList.add("lightning-active");
 
-setTimeout(()=>{
-el.classList.remove("lightning-active");
-},400);
-}
+/* АНИМАЦИЯ СТАФФА */
 
-setInterval(lightningStrike, 300000);
-
-setInterval(()=>{
-if(Math.random() < 0.1){
-lightningStrike();
-}
-},15000);
-
-
-// 👥 анимация стаффа
 const observer = new IntersectionObserver((entries)=>{
 
 entries.forEach(entry=>{
 
 if(entry.isIntersecting){
+
 entry.target.classList.add("staff-show")
-}
-else{
+
+}else{
+
 entry.target.classList.remove("staff-show")
+
 }
 
 })
 
+},{threshold:0.3})
+
+
+document.querySelectorAll(".staff-card").forEach((el,i)=>{
+
+el.style.transitionDelay = i*0.2+"s"
+
+observer.observe(el)
+
 })
 
-document.querySelectorAll(".staff-card").forEach(el=>{
-observer.observe(el)
-})
 
 </script>
 
 </body>
+
 </html>
